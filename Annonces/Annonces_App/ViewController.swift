@@ -11,9 +11,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NetworkClientImpl.shared.requestCategories { adCategories in
+            print("💀 \(#file) \(#function) - adCategories: \(String(describing: adCategories))")
+        }
+        NetworkClientImpl.shared.requestClassifiedAds { classifiedAds in
+            print("💀 \(#file) \(#function) - classifiedAds: \(String(describing: classifiedAds))")
+        }
     }
-
-
 }
 

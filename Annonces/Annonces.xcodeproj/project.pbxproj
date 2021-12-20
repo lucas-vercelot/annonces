@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E39993B276CCE4900A662AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39993A276CCE4900A662AD /* AppDelegate.swift */; };
-		9E39993D276CCE4900A662AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39993C276CCE4900A662AD /* SceneDelegate.swift */; };
 		9E39993F276CCE4900A662AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39993E276CCE4900A662AD /* ViewController.swift */; };
 		9E399942276CCE4900A662AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E399940276CCE4900A662AD /* Main.storyboard */; };
 		9E399944276CCE4B00A662AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E399943276CCE4B00A662AD /* Assets.xcassets */; };
@@ -33,6 +32,29 @@
 		9E3999B3276F7F2A00A662AD /* AnnoncesApiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999B2276F7F2A00A662AD /* AnnoncesApiAction.swift */; };
 		9E3999B7276F7FB600A662AD /* AnnoncesApiRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999B6276F7FB600A662AD /* AnnoncesApiRoute.swift */; };
 		9E3999BB276F922700A662AD /* AnnoncesApiRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999BA276F922700A662AD /* AnnoncesApiRouteTests.swift */; };
+		9E3999C4276F96D400A662AD /* ClassifiedAdsListInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999BE276F96D400A662AD /* ClassifiedAdsListInterfaces.swift */; };
+		9E3999C5276F96D400A662AD /* ClassifiedAdsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999BF276F96D400A662AD /* ClassifiedAdsListPresenter.swift */; };
+		9E3999C6276F96D400A662AD /* ClassifiedAdsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999C0276F96D400A662AD /* ClassifiedAdsListRouter.swift */; };
+		9E3999C7276F96D400A662AD /* ClassifiedAdsListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999C1276F96D400A662AD /* ClassifiedAdsListModels.swift */; };
+		9E3999C8276F96D400A662AD /* ClassifiedAdsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999C2276F96D400A662AD /* ClassifiedAdsListViewController.swift */; };
+		9E3999C9276F96D400A662AD /* ClassifiedAdsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999C3276F96D400A662AD /* ClassifiedAdsListInteractor.swift */; };
+		9E3999CC276F977600A662AD /* ViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999CB276F977600A662AD /* ViewControllerRouter.swift */; };
+		9E3999CE276F97B500A662AD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999CD276F97B500A662AD /* Router.swift */; };
+		9E3999D2276F97E000A662AD /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999D1276F97E000A662AD /* RoutingStep.swift */; };
+		9E3999D4276F982A00A662AD /* RoutingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999D3276F982A00A662AD /* RoutingScene.swift */; };
+		9E3999D6276F989400A662AD /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999D5276F989400A662AD /* BaseRouter.swift */; };
+		9E3999D8276F99F400A662AD /* RoutedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999D7276F99F400A662AD /* RoutedViewController.swift */; };
+		9E3999DA276F9A3300A662AD /* RoutingScene+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999D9276F9A3300A662AD /* RoutingScene+UIViewController.swift */; };
+		9E3999DC276F9CB200A662AD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999DB276F9CB200A662AD /* AppRouter.swift */; };
+		9E3999DF276FA67F00A662AD /* ClassifiedAdsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999DE276FA67F00A662AD /* ClassifiedAdsTableViewDataSource.swift */; };
+		9E3999E1276FA68C00A662AD /* ClassifiedAdsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3999E0276FA68C00A662AD /* ClassifiedAdsTableViewDelegate.swift */; };
+		9EB5820D27707DFD00A6F69A /* ClassifiedAdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5820C27707DFD00A6F69A /* ClassifiedAdTableViewCell.swift */; };
+		9EB582112770879600A6F69A /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB582102770879600A6F69A /* UIImageView+Download.swift */; };
+		9EB5821E2770B14200A6F69A /* UIView+ConstraintLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5821D2770B14200A6F69A /* UIView+ConstraintLayout.swift */; };
+		9EB582212770C65000A6F69A /* UIStackView+RemoveAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB582202770C65000A6F69A /* UIStackView+RemoveAll.swift */; };
+		9EB582232770ECD200A6F69A /* EnrichedClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB582222770ECD200A6F69A /* EnrichedClassifiedAd.swift */; };
+		9EB582292770EF3800A6F69A /* ClassifiedAdEnricherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB582282770EF3700A6F69A /* ClassifiedAdEnricherTests.swift */; };
+		9EB5822A2770FA1200A6F69A /* ClassifiedAdEnricher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB582252770EE1A00A6F69A /* ClassifiedAdEnricher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +91,6 @@
 /* Begin PBXFileReference section */
 		9E399937276CCE4900A662AD /* Annonces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Annonces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E39993A276CCE4900A662AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E39993C276CCE4900A662AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E39993E276CCE4900A662AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E399941276CCE4900A662AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E399943276CCE4B00A662AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +117,29 @@
 		9E3999B2276F7F2A00A662AD /* AnnoncesApiAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoncesApiAction.swift; sourceTree = "<group>"; };
 		9E3999B6276F7FB600A662AD /* AnnoncesApiRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoncesApiRoute.swift; sourceTree = "<group>"; };
 		9E3999BA276F922700A662AD /* AnnoncesApiRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoncesApiRouteTests.swift; sourceTree = "<group>"; };
+		9E3999BE276F96D400A662AD /* ClassifiedAdsListInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsListInterfaces.swift; sourceTree = "<group>"; };
+		9E3999BF276F96D400A662AD /* ClassifiedAdsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsListPresenter.swift; sourceTree = "<group>"; };
+		9E3999C0276F96D400A662AD /* ClassifiedAdsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsListRouter.swift; sourceTree = "<group>"; };
+		9E3999C1276F96D400A662AD /* ClassifiedAdsListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsListModels.swift; sourceTree = "<group>"; };
+		9E3999C2276F96D400A662AD /* ClassifiedAdsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsListViewController.swift; sourceTree = "<group>"; };
+		9E3999C3276F96D400A662AD /* ClassifiedAdsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsListInteractor.swift; sourceTree = "<group>"; };
+		9E3999CB276F977600A662AD /* ViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRouter.swift; sourceTree = "<group>"; };
+		9E3999CD276F97B500A662AD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9E3999D1276F97E000A662AD /* RoutingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
+		9E3999D3276F982A00A662AD /* RoutingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingScene.swift; sourceTree = "<group>"; };
+		9E3999D5276F989400A662AD /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		9E3999D7276F99F400A662AD /* RoutedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutedViewController.swift; sourceTree = "<group>"; };
+		9E3999D9276F9A3300A662AD /* RoutingScene+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutingScene+UIViewController.swift"; sourceTree = "<group>"; };
+		9E3999DB276F9CB200A662AD /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		9E3999DE276FA67F00A662AD /* ClassifiedAdsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsTableViewDataSource.swift; sourceTree = "<group>"; };
+		9E3999E0276FA68C00A662AD /* ClassifiedAdsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdsTableViewDelegate.swift; sourceTree = "<group>"; };
+		9EB5820C27707DFD00A6F69A /* ClassifiedAdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdTableViewCell.swift; sourceTree = "<group>"; };
+		9EB582102770879600A6F69A /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		9EB5821D2770B14200A6F69A /* UIView+ConstraintLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintLayout.swift"; sourceTree = "<group>"; };
+		9EB582202770C65000A6F69A /* UIStackView+RemoveAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveAll.swift"; sourceTree = "<group>"; };
+		9EB582222770ECD200A6F69A /* EnrichedClassifiedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrichedClassifiedAd.swift; sourceTree = "<group>"; };
+		9EB582252770EE1A00A6F69A /* ClassifiedAdEnricher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdEnricher.swift; sourceTree = "<group>"; };
+		9EB582282770EF3700A6F69A /* ClassifiedAdEnricherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAdEnricherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +197,7 @@
 				9E39993E276CCE4900A662AD /* ViewController.swift */,
 				9E399940276CCE4900A662AD /* Main.storyboard */,
 				9E39996A276CD42900A662AD /* Resources */,
+				9EB5820E2770876D00A6F69A /* Utils */,
 			);
 			path = Annonces_App;
 			sourceTree = "<group>";
@@ -160,6 +205,7 @@
 		9E399950276CCE4C00A662AD /* AnnoncesTests */ = {
 			isa = PBXGroup;
 			children = (
+				9EB582272770EF2600A6F69A /* ClassifiedAdEnricher */,
 				9E3999B9276F920800A662AD /* NetworkClient */,
 				9E39999A276CEBCB00A662AD /* Decoding */,
 			);
@@ -187,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				9E39996D276CD46700A662AD /* _App */,
+				9E3999BD276F968400A662AD /* ClassifiedAdsList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -211,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				9E39993A276CCE4900A662AD /* AppDelegate.swift */,
-				9E39993C276CCE4900A662AD /* SceneDelegate.swift */,
+				9E3999DB276F9CB200A662AD /* AppRouter.swift */,
 				9E399971276CD54C00A662AD /* main.swift */,
 			);
 			path = App;
@@ -239,9 +286,10 @@
 		9E39998C276CDEF000A662AD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9E39998D276CE11900A662AD /* ClassifiedAd.swift */,
-				9E399991276CE7A600A662AD /* ImagesURL.swift */,
 				9E39998F276CE12D00A662AD /* AdCategory.swift */,
+				9E39998D276CE11900A662AD /* ClassifiedAd.swift */,
+				9EB582222770ECD200A6F69A /* EnrichedClassifiedAd.swift */,
+				9E399991276CE7A600A662AD /* ImagesURL.swift */,
 				9E3999AB276F724E00A662AD /* ResponseList.swift */,
 			);
 			path = Entities;
@@ -253,8 +301,8 @@
 				9E399998276CEAF500A662AD /* AnnoncesEntitiesAdCategoryDecodingTests.swift */,
 				9E399994276CEABF00A662AD /* AnnoncesEntitiesClassifiedAdDecodingTests.swift */,
 				9E399996276CEADF00A662AD /* AnnoncesEntitiesImagesURLDecodingTests.swift */,
-				9E3999A7276D00EF00A662AD /* AnnoncesEntitiesResponseListClassifiedAdsDecodingTests.swift */,
 				9E3999AD276F75DD00A662AD /* AnnoncesEntitiesResponseListAdCategoriesDecodingTests.swift */,
+				9E3999A7276D00EF00A662AD /* AnnoncesEntitiesResponseListClassifiedAdsDecodingTests.swift */,
 			);
 			path = "AnnoncesEntities Objects";
 			sourceTree = "<group>";
@@ -304,6 +352,8 @@
 		9E3999AF276F7D1A00A662AD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9EB582242770EE0800A6F69A /* ClassifiedAdEnricher */,
+				9E3999CA276F975F00A662AD /* Router */,
 				9E3999B8276F911700A662AD /* NetworkClient */,
 			);
 			path = Components;
@@ -333,6 +383,110 @@
 				9E3999BA276F922700A662AD /* AnnoncesApiRouteTests.swift */,
 			);
 			path = Routes;
+			sourceTree = "<group>";
+		};
+		9E3999BD276F968400A662AD /* ClassifiedAdsList */ = {
+			isa = PBXGroup;
+			children = (
+				9E3999DD276FA17400A662AD /* Controls */,
+				9E3999C3276F96D400A662AD /* ClassifiedAdsListInteractor.swift */,
+				9E3999BE276F96D400A662AD /* ClassifiedAdsListInterfaces.swift */,
+				9E3999C1276F96D400A662AD /* ClassifiedAdsListModels.swift */,
+				9E3999BF276F96D400A662AD /* ClassifiedAdsListPresenter.swift */,
+				9E3999C0276F96D400A662AD /* ClassifiedAdsListRouter.swift */,
+				9E3999C2276F96D400A662AD /* ClassifiedAdsListViewController.swift */,
+			);
+			path = ClassifiedAdsList;
+			sourceTree = "<group>";
+		};
+		9E3999CA276F975F00A662AD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9E3999D0276F97D100A662AD /* Business Routing */,
+				9E3999CF276F97CB00A662AD /* Router */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9E3999CF276F97CB00A662AD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9E3999D5276F989400A662AD /* BaseRouter.swift */,
+				9E3999D7276F99F400A662AD /* RoutedViewController.swift */,
+				9E3999CD276F97B500A662AD /* Router.swift */,
+				9E3999CB276F977600A662AD /* ViewControllerRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9E3999D0276F97D100A662AD /* Business Routing */ = {
+			isa = PBXGroup;
+			children = (
+				9E3999D3276F982A00A662AD /* RoutingScene.swift */,
+				9E3999D9276F9A3300A662AD /* RoutingScene+UIViewController.swift */,
+				9E3999D1276F97E000A662AD /* RoutingStep.swift */,
+			);
+			path = "Business Routing";
+			sourceTree = "<group>";
+		};
+		9E3999DD276FA17400A662AD /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9E3999DE276FA67F00A662AD /* ClassifiedAdsTableViewDataSource.swift */,
+				9E3999E0276FA68C00A662AD /* ClassifiedAdsTableViewDelegate.swift */,
+				9EB5820C27707DFD00A6F69A /* ClassifiedAdTableViewCell.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		9EB5820E2770876D00A6F69A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5821F2770C62F00A6F69A /* UIStackView */,
+				9EB5821C2770B12F00A6F69A /* UIView */,
+				9EB5820F2770877D00A6F69A /* Images */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9EB5820F2770877D00A6F69A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9EB582102770879600A6F69A /* UIImageView+Download.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		9EB5821C2770B12F00A6F69A /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5821D2770B14200A6F69A /* UIView+ConstraintLayout.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		9EB5821F2770C62F00A6F69A /* UIStackView */ = {
+			isa = PBXGroup;
+			children = (
+				9EB582202770C65000A6F69A /* UIStackView+RemoveAll.swift */,
+			);
+			path = UIStackView;
+			sourceTree = "<group>";
+		};
+		9EB582242770EE0800A6F69A /* ClassifiedAdEnricher */ = {
+			isa = PBXGroup;
+			children = (
+				9EB582252770EE1A00A6F69A /* ClassifiedAdEnricher.swift */,
+			);
+			path = ClassifiedAdEnricher;
+			sourceTree = "<group>";
+		};
+		9EB582272770EF2600A6F69A /* ClassifiedAdEnricher */ = {
+			isa = PBXGroup;
+			children = (
+				9EB582282770EF3700A6F69A /* ClassifiedAdEnricherTests.swift */,
+			);
+			path = ClassifiedAdEnricher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,12 +633,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3999D2276F97E000A662AD /* RoutingStep.swift in Sources */,
+				9E3999D6276F989400A662AD /* BaseRouter.swift in Sources */,
 				9E39993F276CCE4900A662AD /* ViewController.swift in Sources */,
+				9E3999C9276F96D400A662AD /* ClassifiedAdsListInteractor.swift in Sources */,
+				9E3999C5276F96D400A662AD /* ClassifiedAdsListPresenter.swift in Sources */,
+				9EB5820D27707DFD00A6F69A /* ClassifiedAdTableViewCell.swift in Sources */,
+				9E3999C8276F96D400A662AD /* ClassifiedAdsListViewController.swift in Sources */,
+				9E3999C4276F96D400A662AD /* ClassifiedAdsListInterfaces.swift in Sources */,
+				9E3999CC276F977600A662AD /* ViewControllerRouter.swift in Sources */,
+				9EB5821E2770B14200A6F69A /* UIView+ConstraintLayout.swift in Sources */,
+				9E3999DA276F9A3300A662AD /* RoutingScene+UIViewController.swift in Sources */,
+				9EB582212770C65000A6F69A /* UIStackView+RemoveAll.swift in Sources */,
 				9E3999B1276F7D3F00A662AD /* NetworkClient.swift in Sources */,
+				9E3999DF276FA67F00A662AD /* ClassifiedAdsTableViewDataSource.swift in Sources */,
+				9EB5822A2770FA1200A6F69A /* ClassifiedAdEnricher.swift in Sources */,
+				9EB582112770879600A6F69A /* UIImageView+Download.swift in Sources */,
+				9E3999CE276F97B500A662AD /* Router.swift in Sources */,
+				9E3999DC276F9CB200A662AD /* AppRouter.swift in Sources */,
 				9E39993B276CCE4900A662AD /* AppDelegate.swift in Sources */,
+				9E3999E1276FA68C00A662AD /* ClassifiedAdsTableViewDelegate.swift in Sources */,
+				9E3999D4276F982A00A662AD /* RoutingScene.swift in Sources */,
+				9E3999D8276F99F400A662AD /* RoutedViewController.swift in Sources */,
 				9E3999B3276F7F2A00A662AD /* AnnoncesApiAction.swift in Sources */,
 				9E399972276CD54C00A662AD /* main.swift in Sources */,
-				9E39993D276CCE4900A662AD /* SceneDelegate.swift in Sources */,
+				9E3999C7276F96D400A662AD /* ClassifiedAdsListModels.swift in Sources */,
+				9E3999C6276F96D400A662AD /* ClassifiedAdsListRouter.swift in Sources */,
 				9E3999B7276F7FB600A662AD /* AnnoncesApiRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E39999D276CEBFE00A662AD /* DecodingHelpers.swift in Sources */,
+				9EB582292770EF3800A6F69A /* ClassifiedAdEnricherTests.swift in Sources */,
 				9E3999A8276D00EF00A662AD /* AnnoncesEntitiesResponseListClassifiedAdsDecodingTests.swift in Sources */,
 				9E399995276CEABF00A662AD /* AnnoncesEntitiesClassifiedAdDecodingTests.swift in Sources */,
 				9E399999276CEAF500A662AD /* AnnoncesEntitiesAdCategoryDecodingTests.swift in Sources */,
@@ -507,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB582232770ECD200A6F69A /* EnrichedClassifiedAd.swift in Sources */,
 				9E3999A0276CF96100A662AD /* KeyedDecodingContainer+Cast.swift in Sources */,
 				9E3999AC276F724E00A662AD /* ResponseList.swift in Sources */,
 				9E3999A4276CFA8200A662AD /* DateFormatter+Formatters.swift in Sources */,
@@ -678,7 +854,6 @@
 				DEVELOPMENT_TEAM = 543F6ZBDU8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Annonces_App/Resources/Config/Info.plist";
-				INFOPLIST_KEY_NSMainNibFile = Main;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -709,7 +884,6 @@
 				DEVELOPMENT_TEAM = 543F6ZBDU8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Annonces_App/Resources/Config/Info.plist";
-				INFOPLIST_KEY_NSMainNibFile = Main;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

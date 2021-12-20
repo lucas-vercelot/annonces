@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkClientImpl.shared.requestCategories { adCategories in
-            print("💀 \(#file) \(#function) - adCategories: \(String(describing: adCategories))")
-        }
-        NetworkClientImpl.shared.requestClassifiedAds { classifiedAds in
-            print("💀 \(#file) \(#function) - classifiedAds: \(String(describing: classifiedAds))")
-        }
+//        NetworkClientImpl.shared.requestCategories { adCategories in
+//            print("💀 \(#file) \(#function) - adCategories: \(String(describing: adCategories))")
+//        }
+//        NetworkClientImpl.shared.requestClassifiedAds { classifiedAds in
+//            print("💀 \(#file) \(#function) - classifiedAds: \(String(describing: classifiedAds))")
+//        }
     }
 }
 

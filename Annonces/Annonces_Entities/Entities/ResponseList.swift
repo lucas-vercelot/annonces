@@ -10,7 +10,7 @@ import Foundation
 private struct EmptyCodable: Decodable {}
 
 public struct ResponseList<T: Decodable & Equatable>: Decodable {
-    var elements: [T]
+    public var elements: [T]
     
     public init(from decoder: Decoder) throws {
         var elements = [T]()
@@ -27,5 +27,9 @@ public struct ResponseList<T: Decodable & Equatable>: Decodable {
         }
         
         self.elements = elements
+    }
+    
+    public init() {
+        self.elements = []
     }
 }

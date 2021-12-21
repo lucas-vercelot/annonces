@@ -6,19 +6,14 @@
 //
 
 import Foundation
+import Annonces_Entities
 
 extension Routing {
     
-    /// Describe all scenes of the applications, and their required parameters.
+    /// Describes all scenes (mostly view controllers) of the application, and their required parameters if any.
     enum Scene: Equatable {
 
         case classifiedAdsList
-        
-        var shouldBeEmbeddedInNavigationStackAsRoot: Bool {
-            switch self {
-            case .classifiedAdsList:
-                return true
-            }
-        }
+        case classifiedAdDetail(enrichedClassifiedAd: EnrichedClassifiedAd)
     }
 }

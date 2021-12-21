@@ -7,9 +7,15 @@
 
 import Foundation
 import UIKit
+import Annonces_Entities
 
 class ClassifiedAdsListRouter: ViewControllerRouter {}
 
 // MARK: - ViewController -> Router
 
-extension ClassifiedAdsListRouter: ClassifiedAdsListRoutable {}
+extension ClassifiedAdsListRouter: ClassifiedAdsListRoutable {
+    
+    func showClassifiedAdDetail(for enrichedClassifiedAd: EnrichedClassifiedAd) {
+        present(scene: .classifiedAdDetail(enrichedClassifiedAd: enrichedClassifiedAd))
+    }
+}

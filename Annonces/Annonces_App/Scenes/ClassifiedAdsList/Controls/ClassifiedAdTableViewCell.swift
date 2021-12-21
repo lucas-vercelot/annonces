@@ -17,6 +17,7 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImageView.contentMode = .scaleAspectFill
         thumbnailImageView.clipsToBounds = true
+        thumbnailImageView.image = UIImage(named: "placeholderImage")
         return thumbnailImageView
     }()
     
@@ -44,6 +45,7 @@ class ClassifiedAdTableViewCell: UITableViewCell {
     private lazy var priceLabel: UILabel = {
         let priceLabel = UILabel()
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.adjustsFontForContentSizeCategory = true
         priceLabel.font = .systemFont(ofSize: 13.0, weight: .semibold)
         priceLabel.textColor = .secondaryLabel
         priceLabel.textAlignment = .right
@@ -54,10 +56,23 @@ class ClassifiedAdTableViewCell: UITableViewCell {
     private lazy var categoryLabel: UILabel = {
         let categoryLabel = UILabel()
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        categoryLabel.adjustsFontForContentSizeCategory = true
         categoryLabel.font = .systemFont(ofSize: 11.0, weight: .heavy)
         categoryLabel.textColor = .tertiaryLabel
         categoryLabel.numberOfLines = 1
         return categoryLabel
+    }()
+    
+    private lazy var urgentLabel: UILabel = {
+        let urgentLabel = UILabel()
+        urgentLabel.translatesAutoresizingMaskIntoConstraints = false
+        urgentLabel.adjustsFontForContentSizeCategory = true
+        urgentLabel.font = .systemFont(ofSize: 10.0, weight: .bold)
+        urgentLabel.textColor = .systemRed
+        urgentLabel.numberOfLines = 1
+        urgentLabel.text = "URGENT"
+        urgentLabel.isHidden = true
+        return urgentLabel
     }()
     
     required init?(coder aDecoder: NSCoder) {
@@ -106,6 +121,7 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         
         contentView.addSubview(detailsVerticalStackView)
         
+        detailsVerticalStackView.addArrangedSubview(urgentLabel)
         detailsVerticalStackView.addArrangedSubview(categoryLabel)
         detailsVerticalStackView.addArrangedSubview(titleLabel)
         detailsVerticalStackView.addArrangedSubview(priceLabel)
@@ -146,13 +162,13 @@ class ClassifiedAdTableViewCell: UITableViewCell {
     
     func configure(with enrichedClassifiedAd: EnrichedClassifiedAd) {
         configureImage(with: enrichedClassifiedAd.imagesURL.thumbnail)
+        configureUrgentState(with: enrichedClassifiedAd.isUrgent)
         configureTitle(with: enrichedClassifiedAd.title)
         configureCategory(with: String(enrichedClassifiedAd.category.name))
         configurePrice(with: String(format: "%.2f€", enrichedClassifiedAd.price))
     }
     
     private func configureImage(with imageURL: URL) {
-        thumbnailImageView.isHidden = false
         thumbnailImageView.setImageFromURL(imageURL) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -164,6 +180,10 @@ class ClassifiedAdTableViewCell: UITableViewCell {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func configureUrgentState(with isUrgent: Bool) {
+        urgentLabel.isHidden = !isUrgent
     }
     
     private func configureTitle(with title: String) {
@@ -190,5 +210,6 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         categoryLabel.text = nil
         priceLabel.text = nil
         thumbnailImageView.image = nil
+        urgentLabel.isHidden = true
     }
 }

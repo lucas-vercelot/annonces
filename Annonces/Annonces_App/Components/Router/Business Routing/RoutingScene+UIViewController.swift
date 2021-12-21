@@ -15,6 +15,10 @@ extension Routing.Scene {
         switch self {
         case .classifiedAdsList:
             return ClassifiedAdsListViewController()
+        case let .classifiedAdDetail(enrichedClassifiedAd):
+            let classifiedAdDetailViewController = ClassifiedAdDetailViewController()
+            classifiedAdDetailViewController.enrichedClassifiedAd = enrichedClassifiedAd
+            return classifiedAdDetailViewController
         }
     }
 }

@@ -8,15 +8,13 @@
 import XCTest
 @testable import Annonces
 
-class LiberationApiRouteTests: XCTestCase {
+class AnnoncesApiRouteTests: XCTestCase {
     
     func test__adCategoriesAction_route_params() {
         let action = AnnoncesApiAction.adCategories
         let route = AnnoncesApiRoute(action: action)
 
         XCTAssertEqual(route.endpoint, "categories.json")
-        XCTAssertEqual(route.method, AnnoncesApiRoute.HTTPMethod.get)
-        XCTAssertEqual(route.responseTimeout, TimeInterval(5.0))
     }
     
     func test__classifiedAdAction_route_params() {
@@ -24,7 +22,5 @@ class LiberationApiRouteTests: XCTestCase {
         let route = AnnoncesApiRoute(action: action)
 
         XCTAssertEqual(route.endpoint, "listing.json")
-        XCTAssertEqual(route.method, AnnoncesApiRoute.HTTPMethod.get)
-        XCTAssertEqual(route.responseTimeout, TimeInterval(5.0))
     }
 }

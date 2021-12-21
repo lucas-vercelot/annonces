@@ -17,13 +17,14 @@ protocol ClassifiedAdsListDisplayable: AnyObject {
 // MARK: - Interactor
 
 protocol ClassifiedAdsListInteractable {
-    func loadClassifiedAds()
+    func load()
+    func loadClassifiedAdsForCategory(adCategory: AdCategory?)
 }
 
 // MARK: - Presenter
 
 protocol ClassifiedAdsListPresentable {
-    func presentClassifiedAds(with response: ClassifiedAdsListModels.Response)
+    func presentClassifiedAds(with response: ClassifiedAdsListModels.Response, filteredFor adCategory: AdCategory?)
 }
 
 // MARK: - Router

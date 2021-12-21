@@ -15,17 +15,6 @@ class AnnoncesApiRoute {
         self.action = action
     }
     
-    enum HTTPMethod: String {
-        case get
-    }
-    
-    var method: HTTPMethod {
-        switch action {
-        case .classifiedAds, .adCategories:
-            return .get
-        }
-    }
-    
     var endpoint: String? {
         switch action {
         case .adCategories:
@@ -33,9 +22,5 @@ class AnnoncesApiRoute {
         case .classifiedAds:
             return "listing.json"
         }
-    }
-    
-    var responseTimeout: TimeInterval {
-        return 5.0
     }
 }

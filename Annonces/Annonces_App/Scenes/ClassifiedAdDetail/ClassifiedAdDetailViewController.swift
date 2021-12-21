@@ -102,7 +102,7 @@ class ClassifiedAdDetailViewController: UIViewController {
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.adjustsFontForContentSizeCategory = true
         categoryLabel.font = .systemFont(ofSize: 12.0, weight: .heavy)
-        categoryLabel.textColor = .quaternaryLabel
+        categoryLabel.textColor = .secondaryLabel
         categoryLabel.numberOfLines = 1
         return categoryLabel
     }()

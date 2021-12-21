@@ -32,3 +32,15 @@ public struct EnrichedClassifiedAd {
 // MARK: - Equatable
 
 extension EnrichedClassifiedAd: Equatable {}
+
+// MARK: - Comparable
+
+extension EnrichedClassifiedAd: Comparable {
+
+    public static func <(lhs: EnrichedClassifiedAd, rhs: EnrichedClassifiedAd) -> Bool {
+        if lhs.isUrgent == rhs.isUrgent {
+            return lhs.creationDate > rhs.creationDate
+        }
+        return lhs.isUrgent
+    }
+}

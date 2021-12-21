@@ -58,7 +58,8 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.adjustsFontForContentSizeCategory = true
         categoryLabel.font = .systemFont(ofSize: 11.0, weight: .heavy)
-        categoryLabel.textColor = .tertiaryLabel
+        categoryLabel.textColor = .secondaryLabel
+        categoryLabel.textAlignment = .left
         categoryLabel.numberOfLines = 1
         return categoryLabel
     }()
@@ -70,9 +71,21 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         urgentLabel.font = .systemFont(ofSize: 10.0, weight: .bold)
         urgentLabel.textColor = .systemRed
         urgentLabel.numberOfLines = 1
+        urgentLabel.textAlignment = .left
         urgentLabel.text = "URGENT"
         urgentLabel.isHidden = true
         return urgentLabel
+    }()
+    
+    private lazy var creationDateLabel: UILabel = {
+        let creationDateLabel = UILabel()
+        creationDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        creationDateLabel.adjustsFontForContentSizeCategory = true
+        creationDateLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
+        creationDateLabel.textColor = .label
+        creationDateLabel.textAlignment = .right
+        creationDateLabel.numberOfLines = 1
+        return creationDateLabel
     }()
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,8 +99,12 @@ class ClassifiedAdTableViewCell: UITableViewCell {
     }
     
     private func commonInit() {
-        selectionStyle = .none
+        configureViews()
+    }
+    
+    // MARK: - Configure
 
+    func configureViews() {
         contentView.addSubview(thumbnailImageView)
         
         NSLayoutConstraint(item: thumbnailImageView,
@@ -125,6 +142,7 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         detailsVerticalStackView.addArrangedSubview(categoryLabel)
         detailsVerticalStackView.addArrangedSubview(titleLabel)
         detailsVerticalStackView.addArrangedSubview(priceLabel)
+        detailsVerticalStackView.addArrangedSubview(creationDateLabel)
         
         NSLayoutConstraint(item: detailsVerticalStackView,
                            attribute: .top,
@@ -158,14 +176,13 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         layoutIfNeeded()
     }
     
-    // MARK: - Configure
-    
     func configure(with enrichedClassifiedAd: EnrichedClassifiedAd) {
         configureImage(with: enrichedClassifiedAd.imagesURL.thumbnail)
         configureUrgentState(with: enrichedClassifiedAd.isUrgent)
         configureTitle(with: enrichedClassifiedAd.title)
         configureCategory(with: String(enrichedClassifiedAd.category.name))
         configurePrice(with: String(format: "%.2f€", enrichedClassifiedAd.price))
+        configureCreationDate(with: enrichedClassifiedAd.creationDate)
     }
     
     private func configureImage(with imageURL: URL) {
@@ -198,6 +215,10 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         priceLabel.text = price
     }
     
+    private func configureCreationDate(with creationDate: Date) {
+        creationDateLabel.text = "Annonce créée le " + DateFormatter.creationDateDisplayFormatter.string(from: creationDate)
+    }
+    
     // MARK: - Reuse
     
     override func prepareForReuse() {
@@ -209,7 +230,8 @@ class ClassifiedAdTableViewCell: UITableViewCell {
         titleLabel.text = nil
         categoryLabel.text = nil
         priceLabel.text = nil
-        thumbnailImageView.image = nil
+        thumbnailImageView.image = UIImage(named: "placeholderImage")
         urgentLabel.isHidden = true
+        creationDateLabel.text = nil
     }
 }

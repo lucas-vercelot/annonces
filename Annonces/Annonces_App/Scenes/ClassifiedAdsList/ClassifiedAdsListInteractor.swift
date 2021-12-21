@@ -10,10 +10,15 @@ import Annonces_Entities
 
 class ClassifiedAdsListInteractor {
     
-    // MARK: - Vars
+    // MARK: - Dependencies
     
     private let presenter: ClassifiedAdsListPresentable
     private let networkClient: NetworkClient
+
+    // MARK: - Vars
+    
+    private var adCategories = [AdCategory]()
+    private var classifiedAds = [ClassifiedAd]()
     
     // MARK: - Init
     
@@ -28,9 +33,31 @@ class ClassifiedAdsListInteractor {
 
 extension ClassifiedAdsListInteractor: ClassifiedAdsListInteractable {
     
-    func loadClassifiedAds() {
+    func load() {
+        loadClassifiedAds()
+    }
+    
+    func loadClassifiedAdsForCategory(adCategory: AdCategory?) {
+        if classifiedAds.isEmpty == false && adCategories.isEmpty == false {
+            presenter.presentClassifiedAds(
+                with: ClassifiedAdsListModels.Response(adCategories: adCategories,
+                                                       classifiedAds: classifiedAds),
+                filteredFor: adCategory)
+        } else {
+            loadClassifiedAds(filteredFor: adCategory)
+        }
+    }
+    
+    private func loadClassifiedAds(filteredFor adCategory: AdCategory? = nil) {
         networkClient.fetchAdsAndCategories { [weak self] categoriesAndClassifiedAds in
-            self?.presenter.presentClassifiedAds(with: ClassifiedAdsListModels.Response(adCategories: categoriesAndClassifiedAds.0, classifiedAds: categoriesAndClassifiedAds.1))
+            guard let self = self else { return }
+            
+            self.adCategories = categoriesAndClassifiedAds.0
+            self.classifiedAds = categoriesAndClassifiedAds.1
+            self.presenter.presentClassifiedAds(
+                with: ClassifiedAdsListModels.Response(adCategories: self.adCategories,
+                                                       classifiedAds: self.classifiedAds),
+                filteredFor: adCategory)
         }
     }
 }

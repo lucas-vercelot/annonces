@@ -20,7 +20,10 @@ class ClassifiedAdsListViewController: UIViewController {
         let navigationItem = UINavigationItem(title: "Annonces")
         navigationItem.titleView?.backgroundColor = .systemBackground
         navigationBar.setItems([navigationItem], animated: false)
-        let filterButton = UIBarButtonItem(title: "Filtrer", image: nil, primaryAction: nil, menu: nil)
+        let filterAction = UIAction() { [weak self] action in
+            self?.showFilterOptions()
+        }
+        let filterButton = UIBarButtonItem(title: "Filtrer", image: nil, primaryAction: filterAction, menu: nil)
         navigationItem.rightBarButtonItem = filterButton
         return navigationBar
     }()
@@ -46,6 +49,15 @@ class ClassifiedAdsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViews()
+        configureTableView()
+        
+        interactor.load()
+    }
+    
+    // MARK: - Configure
+    
+    private func configureViews() {
         view.backgroundColor = .systemBackground
         
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -63,15 +75,9 @@ class ClassifiedAdsListViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 0.0),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-                
-        configureTableView()
-        
-        interactor.loadClassifiedAds()
     }
-    
-    // MARK: - Configure
     
     private func configureTableView() {
         tableViewDelegate = ClassifiedAdsTableViewDelegate(tableView: tableView)
@@ -84,6 +90,37 @@ class ClassifiedAdsListViewController: UIViewController {
         
         tableViewDataSource = ClassifiedAdsTableViewDataSource(tableView: tableView, dataProvider: self)
         tableView.dataSource = tableViewDataSource
+    }
+    
+    // MARK: - Filter
+    
+    private func showFilterOptions() {
+        let alert = UIAlertController(title: "Filtrer par Catégorie",
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
+        let currentAction = UIAlertAction(title: "Annuler",
+                                          style: .cancel,
+                                          handler: nil)
+        alert.addAction(currentAction)
+        
+        let resetFilterAction = UIAlertAction(title: "Toutes les Catégories",
+                                              style: .default) { [weak self] _ in
+            self?.interactor.loadClassifiedAdsForCategory(adCategory: nil)
+        }
+        alert.addAction(resetFilterAction)
+        
+        viewModel?.adCategories.forEach { adCategory in
+            let action = UIAlertAction(title: adCategory.name,
+                                       style: .default) { [weak self] _ in
+                self?.interactor.loadClassifiedAdsForCategory(adCategory: adCategory)
+            }
+            alert.addAction(action)
+        }
+        
+        alert.popoverPresentationController?.sourceView = navigationBar
+        alert.popoverPresentationController?.sourceRect = navigationBar.bounds
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

@@ -20,6 +20,7 @@ enum ClassifiedAdsListModels {
     // MARK: - Presenter -> ViewController
     
     struct ViewModel {
+        let adCategories: [AdCategory]
         let enrichedClassifiedAds: [EnrichedClassifiedAd]
     }
 }

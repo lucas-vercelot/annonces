@@ -13,6 +13,7 @@ class ClassifiedAdsTableViewDelegate: NSObject {
     // MARK: - Vars
     
     private weak var tableView: UITableView?
+    var didSelectClassifiedAdAtIndex: ((IndexPath) -> Void)?
 
     // MARK: - Init
     
@@ -28,6 +29,7 @@ class ClassifiedAdsTableViewDelegate: NSObject {
 extension ClassifiedAdsTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectClassifiedAdAtIndex?(indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

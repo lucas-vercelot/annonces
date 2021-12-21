@@ -13,7 +13,19 @@ class ClassifiedAdsListViewController: UIViewController {
     
     // MARK: - Outlets
     
-    private var tableView : UITableView = {
+    private lazy var navigationBar: UINavigationBar = {
+        let navigationBar = UINavigationBar()
+        navigationBar.backgroundColor = .systemBackground
+        navigationBar.barTintColor = .systemBackground
+        let navigationItem = UINavigationItem(title: "Annonces")
+        navigationItem.titleView?.backgroundColor = .systemBackground
+        navigationBar.setItems([navigationItem], animated: false)
+        let filterButton = UIBarButtonItem(title: "Filtrer", image: nil, primaryAction: nil, menu: nil)
+        navigationItem.rightBarButtonItem = filterButton
+        return navigationBar
+    }()
+    
+    private lazy var tableView : UITableView = {
         let tableView = UITableView()
         return tableView
     }()
@@ -35,15 +47,25 @@ class ClassifiedAdsListViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(navigationBar)
+        NSLayoutConstraint.activate([
+            navigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            navigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            navigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0)),
+            navigationBar.heightAnchor.constraint(equalToConstant: 44.0)
+        ])
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 0.0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-        
+                
         configureTableView()
         
         interactor.loadClassifiedAds()
@@ -54,6 +76,11 @@ class ClassifiedAdsListViewController: UIViewController {
     private func configureTableView() {
         tableViewDelegate = ClassifiedAdsTableViewDelegate(tableView: tableView)
         tableView.delegate = tableViewDelegate
+        
+        tableViewDelegate?.didSelectClassifiedAdAtIndex = { [weak self] indexPath in
+            guard let enrichedClassifiedAd = self?.viewModel?.enrichedClassifiedAds[indexPath.row] else { return }
+            self?.internalRouter.showClassifiedAdDetail(for: enrichedClassifiedAd)
+        }
         
         tableViewDataSource = ClassifiedAdsTableViewDataSource(tableView: tableView, dataProvider: self)
         tableView.dataSource = tableViewDataSource

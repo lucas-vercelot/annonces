@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Annonces_Entities
 
 // MARK: - View Controller
 
@@ -27,4 +28,6 @@ protocol ClassifiedAdsListPresentable {
 
 // MARK: - Router
 
-protocol ClassifiedAdsListRoutable {}
+protocol ClassifiedAdsListRoutable {
+    func showClassifiedAdDetail(for enrichedClassifiedAd: EnrichedClassifiedAd)
+}

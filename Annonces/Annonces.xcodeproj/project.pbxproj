@@ -219,11 +219,7 @@
 		9E399950276CCE4C00A662AD /* AnnoncesTests */ = {
 			isa = PBXGroup;
 			children = (
-				9EB5824427720B4C00A6F69A /* ClassifiedAdOrderer */,
-				9EB5823E277208A100A6F69A /* ClassifiedAdFilterer */,
-				9EB582272770EF2600A6F69A /* ClassifiedAdEnricher */,
-				9E3999B9276F920800A662AD /* NetworkClient */,
-				9E39999A276CEBCB00A662AD /* Decoding */,
+				9EB582522773284100A6F69A /* Tests */,
 			);
 			path = AnnoncesTests;
 			sourceTree = "<group>";
@@ -369,11 +365,11 @@
 		9E3999AF276F7D1A00A662AD /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9EB5824327720B0800A6F69A /* ClassifiedAdOrderer */,
-				9EB5823B2771E89C00A6F69A /* ClassifiedAdFilterer */,
 				9EB582242770EE0800A6F69A /* ClassifiedAdEnricher */,
-				9E3999CA276F975F00A662AD /* Router */,
+				9EB5823B2771E89C00A6F69A /* ClassifiedAdFilterer */,
+				9EB5824327720B0800A6F69A /* ClassifiedAdOrderer */,
 				9E3999B8276F911700A662AD /* NetworkClient */,
+				9E3999CA276F975F00A662AD /* Router */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -551,6 +547,26 @@
 				9EB5824527720B9A00A6F69A /* ClassifiedAdOrdererTests.swift */,
 			);
 			path = ClassifiedAdOrderer;
+			sourceTree = "<group>";
+		};
+		9EB5824E2773265F00A6F69A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9EB582272770EF2600A6F69A /* ClassifiedAdEnricher */,
+				9EB5823E277208A100A6F69A /* ClassifiedAdFilterer */,
+				9EB5824427720B4C00A6F69A /* ClassifiedAdOrderer */,
+				9E3999B9276F920800A662AD /* NetworkClient */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9EB582522773284100A6F69A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5824E2773265F00A6F69A /* Components */,
+				9E39999A276CEBCB00A662AD /* Decoding */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

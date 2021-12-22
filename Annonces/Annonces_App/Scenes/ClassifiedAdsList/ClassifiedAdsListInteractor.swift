@@ -49,11 +49,11 @@ extension ClassifiedAdsListInteractor: ClassifiedAdsListInteractable {
     }
     
     private func loadClassifiedAds(filteredFor adCategory: AdCategory? = nil) {
-        networkClient.fetchAdsAndCategories { [weak self] categoriesAndClassifiedAds in
+        networkClient.fetchAdCategoriesAndClassifiedAds { [weak self] categoriesAndClassifiedAds in
             guard let self = self else { return }
             
-            self.adCategories = categoriesAndClassifiedAds.0
-            self.classifiedAds = categoriesAndClassifiedAds.1
+            self.adCategories = categoriesAndClassifiedAds.adCategories
+            self.classifiedAds = categoriesAndClassifiedAds.classifiedAds
             self.presenter.presentClassifiedAds(
                 with: ClassifiedAdsListModels.Response(adCategories: self.adCategories,
                                                        classifiedAds: self.classifiedAds),

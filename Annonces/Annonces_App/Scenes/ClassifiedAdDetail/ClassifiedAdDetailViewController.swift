@@ -176,8 +176,8 @@ class ClassifiedAdDetailViewController: UIViewController {
         
         horizontalTopStackView.addArrangedSubview(coverImageView)
         NSLayoutConstraint.activate([
-            coverImageView.widthAnchor.constraint(equalToConstant: 80.0),
-            coverImageView.heightAnchor.constraint(equalToConstant: 80.0)
+            coverImageView.widthAnchor.constraint(equalTo: detailsVerticalStackView.widthAnchor, multiplier: 0.33),
+            coverImageView.heightAnchor.constraint(equalTo: coverImageView.widthAnchor, multiplier: 1.0)
         ])
 
         horizontalTopStackView.addArrangedSubview(topUrgentTitleStackView)

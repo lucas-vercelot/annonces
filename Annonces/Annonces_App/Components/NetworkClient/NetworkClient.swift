@@ -39,12 +39,12 @@ class NetworkClientImpl: NetworkClient {
                   return
               }
         
-        let adCategoriesTask = fetchAdCategories(from: adCategoriesRequestURL, defaultValue: ResponseList<AdCategory>())
-
-        let classifiedAdsTask = fetchClassifiedAds(from: classifiedAdsRequestURL, defaultValue: ResponseList<ClassifiedAd>())
+        let adCategoriesTask = fetchData(from: adCategoriesRequestURL, defaultValue: ResponseList<AdCategory>())
+        let classifiedAdsTask = fetchData(from: classifiedAdsRequestURL, defaultValue: ResponseList<ClassifiedAd>())
         
         let combined = Publishers.Zip(adCategoriesTask, classifiedAdsTask)
 
+        // Closure triggered whenever the two puslishers zipped are received.
         combined.sink { loadedAdCategories, loadedClassifiedAds in
             self.categoriesAndClassifiedAds = (loadedAdCategories.elements, loadedClassifiedAds.elements)
             completion(self.categoriesAndClassifiedAds)
@@ -52,27 +52,15 @@ class NetworkClientImpl: NetworkClient {
         .store(in: &requests)
     }
     
-    func fetchAdCategories(from url: URL, defaultValue: ResponseList<AdCategory>) -> AnyPublisher<ResponseList<AdCategory>, Never> {
-    
+    /// Fetches any decodable type of object provided.
+    /// - Returns: a Combine Publisher composed of the requested type and a `Never` error because its given a default value in case of failure.
+    func fetchData<T: Decodable>(from url: URL, defaultValue: T) -> AnyPublisher<T, Never> {
         let decoder = JSONDecoder()
 
         return URLSession.shared.dataTaskPublisher(for: url)
             .retry(1)
             .map(\.data)
-            .decode(type: ResponseList<AdCategory>.self, decoder: decoder)
-            .replaceError(with: defaultValue)
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-    
-    func fetchClassifiedAds(from url: URL, defaultValue: ResponseList<ClassifiedAd>) -> AnyPublisher<ResponseList<ClassifiedAd>, Never> {
-    
-        let decoder = JSONDecoder()
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .retry(1)
-            .map(\.data)
-            .decode(type: ResponseList<ClassifiedAd>.self, decoder: decoder)
+            .decode(type: T.self, decoder: decoder)
             .replaceError(with: defaultValue)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()

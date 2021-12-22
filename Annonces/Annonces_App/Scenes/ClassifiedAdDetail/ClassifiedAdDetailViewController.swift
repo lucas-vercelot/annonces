@@ -140,7 +140,14 @@ class ClassifiedAdDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        configureViewsLayout()
+        configureOutlets()
+    }
+    
+    // MARK: - Configure
+    
+    private func configureViewsLayout() {
         view.backgroundColor = .systemBackground
         
         view.addSubview(scrollView)
@@ -189,11 +196,7 @@ class ClassifiedAdDetailViewController: UIViewController {
             detailsVerticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15.0),
             detailsVerticalStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -15.0)
         ])
-        
-        configureOutlets()
     }
-    
-    // MARK: - Configure
     
     private func configureOutlets() {
         configureCoverImage(with: enrichedClassifiedAd.imagesURL.small)

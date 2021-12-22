@@ -10,9 +10,7 @@ import Combine
 import Annonces_Entities
 
 protocol NetworkClient {
-//    func requestCategories(completion: @escaping ((ResponseList<AdCategory>?) -> Void))
-//    func requestClassifiedAds(completion: @escaping ((ResponseList<ClassifiedAd>?) -> Void))
-    func fetchAdsAndCategories(completion: @escaping (([AdCategory], [ClassifiedAd])) -> Void)
+    func fetchAdCategoriesAndClassifiedAds(completion: @escaping ((adCategories: [AdCategory], classifiedAds: [ClassifiedAd])) -> Void)
 }
 
 class NetworkClientImpl: NetworkClient {
@@ -30,7 +28,7 @@ class NetworkClientImpl: NetworkClient {
 
     // MARK: - Requests
 
-    func fetchAdsAndCategories(completion: @escaping (([AdCategory], [ClassifiedAd])) -> Void) {
+    func fetchAdCategoriesAndClassifiedAds(completion: @escaping ((adCategories: [AdCategory], classifiedAds: [ClassifiedAd])) -> Void) {
         let adCategoriesRoute = AnnoncesApiRoute(action: .adCategories)
         let classifiedAdsRoute = AnnoncesApiRoute(action: .classifiedAds)
         
